@@ -1,0 +1,53 @@
+
+<div class="container justify-between myMenu">
+  <div class="row">
+    <div class="col-12">
+
+    </div>
+  </div>
+  <div class="col- myBody">
+    <div class="menu">
+      <ul>
+        <li><a routerLink="/profile/:username">My Profile</a></li>
+        <li><a routerLink="/register">Register</a></li>
+        <li><a routerLink="/posts">Posts</a></li>
+        <li><a routerLink="/login">Login</a></li>
+        <li><a routerLink="/create-post">Create Post</a></li>
+      </ul>
+    </div>
+        </div>
+      <div class="col-8">
+        <div *ngFor="let post of posts" class="card">
+          <div class="card-header">
+            <h2>{{ post.title }}</h2>
+            <button (click)="deletePost(post._id)" class="btn btn-danger">
+              <i class="fas fa-trash-can fa-sm"></i> Delete
+            </button>
+          </div>
+
+          <p class="post-content">{{ post.content }}</p>
+
+          <!-- Comment creation form -->
+          <form (submit)="createComment(post._id)" class="comment-form">
+            <label for="commentContent">Add a comment:</label>
+            <textarea id="commentContent" [(ngModel)]="newCommentData.content" name="content" class="form-control" required></textarea>
+            <button type="submit" class="btn btn-success">
+              <i class="fas fa-comment"></i> Add Comment
+            </button>
+          </form>
+
+          <!-- Comments list -->
+          <div >
+            <ul>
+              <li *ngFor="let comment of comments">
+                <p>{{ comment.content }}</p>
+
+                <!-- Delete Comment Button -->
+                <button (click)="deleteComment(post._id, comment._id)">Delete Comment</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+</div>

@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div class="myBody">
+  <div class="menu">
+    <div>
+      <ul>
+        <li><a routerLink="/posts" >Posts</a></li>
+        <li><a routerLink="/login">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="block-2">
+    <div class="prof-img">
+      <div class="img">
+        <img  style="height: 340px;" src="C:\Users\администрация\Desktop\WEB\0_GettyImages-1450108295.jpg" alt="">
+
+      </div>
+
+    </div>
+
+    <div class="table-friends">
+      <div class="container mt-5">
+        <div class="card">
+          <div class="card-body">
+
+            <div *ngIf="username || email || age || number">
+              <p><strong>Username:</strong> {{ username }}</p>
+              <p><strong>Email:</strong> {{ email }}</p>
+              <p><strong>Age:</strong> {{ age }}</p>
+              <p><strong>Number:</strong> {{ number }}</p>
+              <!-- Add other profile fields as needed -->
+            </div>
+            <div *ngIf="!username && !email && !age && !number">
+              <p>No user profile available</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+</div>
+</div>
